@@ -4,8 +4,8 @@ load 'ar.rb'
 
 # Create and persist orders for three customers. (Each customer should be from a different province.)
 customers_queue=[]
-(1..3).each do |province_id|  
-customers_queue<<Customer.where(:province_id => province_id).first
+(1..3).each do |province_id|
+  customers_queue<<Customer.where(:province_id => province_id).first
 end
 
 # add one existed customer in queue for second order
@@ -19,7 +19,6 @@ customers_queue.each do |cust|
   # Ensure that you set the status of all orders to ‘new’
   new_order.status="new"
 
-
   # Ensure that you backup the pst, gst and hst rates from the customer’s province into the appropriate properties of the order.
   new_order.gst_rate = cust.province.gst
   new_order.pst_rate= cust.province.pst
@@ -27,7 +26,6 @@ customers_queue.each do |cust|
   #puts new_order.inspect
 
   new_order.save
-
 
   #Each order should involve at least four line items.
   4.times do
@@ -38,7 +36,6 @@ customers_queue.each do |cust|
     new_lineitem.quantity=rand(1..20)
     product_index=rand(product_array.size)
 
-  
     current_product=product_array[product_index]
     # Ensure that each line item is associated with a specific product by way of its foreign key.
     new_lineitem.product = current_product
