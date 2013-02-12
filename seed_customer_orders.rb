@@ -4,8 +4,11 @@ load 'ar.rb'
 
 # Create and persist orders for three customers. (Each customer should be from a different province.)
 customers_queue=[]
+
+#province id 1 for Alberta, 2 for B.C. , 3 for Manitoba as example here
+
 (1..3).each do |province_id|
-  customers_queue<<Customer.where(:province_id => province_id).first
+  customers_queue<<Customer.where(:province_id => province_id).last
 end
 
 # add one existed customer in queue for second order

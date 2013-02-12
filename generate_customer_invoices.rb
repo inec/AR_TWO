@@ -8,7 +8,6 @@ end
 
 customers_with_orders = Customer.includes('orders').where('orders.id IS NOT NULL').where('orders.status = "new"')
 
-
 customers_with_orders.each do |customer|
 
   customer.orders.each do |new_order|
@@ -21,6 +20,7 @@ customers_with_orders.each do |customer|
     puts""
 
     sub_total=0
+    
     new_order.line_items.each do |line_item|
 
       item_name=   line_item.product.name
