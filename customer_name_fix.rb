@@ -2,6 +2,8 @@ load 'ar.rb'
 
 #get all customer whose last is nil
 customers_name_nil = Customer.where(:last_name=>nil)
+#customers_name_nil = Customer.where(:last_name=>nil).limit(5)
+
 
 
 #loop these customers ,split and save the correct first name and last Name
