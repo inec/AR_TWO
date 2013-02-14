@@ -1,8 +1,8 @@
 load 'ar.rb'
 
 #get all customer whose last is nil
-customers_name_nil = Customer.where(:last_name=>nil)
-#customers_name_nil = Customer.where(:last_name=>nil).limit(5)
+#customers_name_nil = Customer.where(:last_name=>nil)
+customers_name_nil = Customer.where(:last_name=>nil).limit(5)
 
 
 
@@ -12,7 +12,7 @@ customers_name_nil.each do |customer|
   customer.first_name=name_array[0]
   customer.last_name=name_array[1]
   customer.save
-  #puts customer.inspect
+  puts customer.inspect
 end
 
 
